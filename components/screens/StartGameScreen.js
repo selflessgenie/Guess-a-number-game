@@ -52,7 +52,7 @@ const StartGameScreen = (props) => {
         <View style={styles.selectedValueView}>
           <Text style={styles.selectedValueText}>You've selected</Text>
           <NumberContainer>{selectedValue}</NumberContainer>
-          <Text style={{ marginVertical: 5 }}>Tap to start the Game</Text>
+          <Text style={styles.startGameText}>Start Game</Text>
         </View>
       </TouchableNativeFeedback>
     );
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     maxWidth: "80%",
     alignItems: "center",
     justifyContent: "center",
-    height: 150,
+    height: 180,
     elevation: 5,
     backgroundColor: "white",
     shadowColor: Colors.positiveShadow,
@@ -152,6 +152,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.positiveText,
     marginVertical: 5,
+    textTransform: "capitalize",
+  },
+  startGameText: {
+    marginVertical: 5,
+    fontSize: 30,
+    color: Colors.positiveText,
+    fontWeight: "bold",
+    textTransform: "uppercase",
   },
 });
 
