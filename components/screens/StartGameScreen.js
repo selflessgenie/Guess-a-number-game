@@ -42,6 +42,7 @@ const StartGameScreen = (props) => {
     setSelectedValue(chosenNumber);
     setEnteredValue("");
     Keyboard.dismiss();
+    props.startGameHandler(chosenNumber);
   };
 
   let selectedValueView;
