@@ -42,14 +42,17 @@ const StartGameScreen = (props) => {
     setSelectedValue(chosenNumber);
     setEnteredValue("");
     Keyboard.dismiss();
-    props.startGameHandler(chosenNumber);
   };
 
   let selectedValueView;
 
   if (confirmed) {
     selectedValueView = (
-      <TouchableNativeFeedback onPress={() => {}}>
+      <TouchableNativeFeedback
+        onPress={() => {
+          props.startGameHandler(selectedValue);
+        }}
+      >
         <View style={styles.selectedValueView}>
           <Text style={styles.selectedValueText}>You've selected</Text>
           <NumberContainer>{selectedValue}</NumberContainer>
@@ -68,7 +71,7 @@ const StartGameScreen = (props) => {
       <View style={styles.screen}>
         <Text style={styles.title}>Start a New Game!</Text>
         <Card style={styles.selectNumberContainer}>
-          <Text>Select a Number</Text>
+          <Text style={styles.cardInto}>Select a Number between 1 to 100</Text>
           <Input
             keyboardType="number-pad"
             maxLength={2}
@@ -110,14 +113,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: 20,
+    fontSize: 30,
     marginVertical: 10,
+    color: Colors.primary,
+    fontWeight: "bold",
+  },
+  cardInto: {
+    fontSize: 20,
+    color: Colors.secondary,
+    textAlign: "center",
   },
   selectNumberContainer: {
     marginTop: 10,
     width: 300,
     maxWidth: "80%",
-    height: 200,
+    height: 250,
     alignItems: "center",
     padding: 15,
   },
